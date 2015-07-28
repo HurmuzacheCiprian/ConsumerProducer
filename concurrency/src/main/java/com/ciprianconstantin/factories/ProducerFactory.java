@@ -53,7 +53,6 @@ public class ProducerFactory {
      * @param <E>
      */
     public <E> void produce(Event<E> event ) {
-        //maybe the producers should be executed at the beginning.
 
         if(currentProducerIndex == PROD_NR-1) {
             currentProducerIndex = 0;
@@ -62,6 +61,5 @@ public class ProducerFactory {
         currentProducer.setElement(event);
         currentProducerIndex++;
         executor.execute(currentProducer);
-
     }
 }

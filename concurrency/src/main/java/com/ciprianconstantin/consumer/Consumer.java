@@ -16,10 +16,10 @@ public class Consumer<E extends Event> implements Runnable {
 
     @Override
     public void run() {
+        System.out.println("Queue size: "+queue.length());
+        System.out.println("Consumer " + Thread.currentThread().getId() + " initiated...");
         while(true) {
             synchronized (queue) {
-                System.out.println("Queue size: "+queue.length());
-                System.out.println("Consumer " + Thread.currentThread().getId() + " initiated...");
                 int queueLength = queue.length();
                 while(queue.isEmpty()) {
                     try {

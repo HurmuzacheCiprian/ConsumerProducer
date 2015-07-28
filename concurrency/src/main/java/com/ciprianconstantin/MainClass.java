@@ -10,19 +10,19 @@ import com.ciprianconstantin.queue.Queue;
  */
 public class MainClass {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Queue<Event<String>> queue = new Queue<Event<String>>();
 
-        ConsumerFactory consumerFactory = new ConsumerFactory(queue,10);
+        ConsumerFactory consumerFactory = new ConsumerFactory(queue, 3);
         consumerFactory.init();
 
-        ProducerFactory producerFactory = new ProducerFactory(queue, 5);
+        ProducerFactory producerFactory = new ProducerFactory(queue, 2);
 
 
-        for(int i=0;i<100;i++) {
-            Event<String> stringEvent = new Event<>("string "+i);
+        for (int i = 0; i < 20; i++) {
+            Event<String> stringEvent = new Event<>("string " + i);
             producerFactory.produce(stringEvent);
-        }   
+        }
 
     }
 

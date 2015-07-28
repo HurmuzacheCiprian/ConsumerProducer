@@ -51,4 +51,8 @@ public class ConsumerFactory {
         }
     }
 
+    public void shutdown() {
+        this.executor.shutdown();
+    }
+
 }
